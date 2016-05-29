@@ -1,0 +1,193 @@
+﻿<Page
+    x:Class="MyUniversity.WindowsPhone10.LessonsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyUniversity.WindowsPhone10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+    xmlns:Controls="using:WinRTXamlToolkit.Controls"
+    
+    mc:Ignorable="d">
+
+    <Grid Style="{StaticResource SecondaryGridStyle}">
+
+        <Pivot x:ConnectionId='1' x:Name="pivotLessons" 
+               Margin="10" 
+               HorizontalAlignment="Stretch" 
+               VerticalAlignment="Stretch">
+
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding NameLesson}" 
+                        Style="{StaticResource PrimaryTextBlockStyle}" 
+                        MaxWidth="120" 
+                        FontSize="14"/>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+
+           <Pivot.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:Name="maingrid" Style="{StaticResource SecondaryGridStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="130"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="130"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            Text="{Binding NameLesson}" 
+                            Style="{StaticResource PrimaryTextBlockStyle}"
+                            FontSize="18"/>
+                      
+                        <StackPanel 
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Orientation="Vertical" 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+
+                            <TextBlock 
+                                Margin="0,5,0,0"
+                                FontSize="32"
+                                Style="{StaticResource PrimaryTextBlockStyle}"
+                                Text="Баллы:" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                />
+
+                            <TextBlock 
+                                Margin="0,5,0,0"
+                                FontSize="32"
+                                Style="{StaticResource PrimaryTextBlockStyle}"
+                                Text="{Binding TotalPoints}" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                />  
+
+                        </StackPanel>
+
+
+
+
+
+                        <TextBlock       
+                              Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource PrimaryTextBlockStyle}"
+                                FontSize="24"
+                                Text="{Binding TotalPointsPercentage}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+
+                     
+                        
+                        <Controls:RingSlice 
+                              Grid.Row="1"
+                                Grid.Column="1"    
+                                StartAngle="0" 
+                                EndAngle="{Binding TotalPointsPercentage}" 
+                                Fill="#1976D2" 
+                            
+                                Radius="60" 
+                                InnerRadius="45"  />
+
+
+
+                        <StackPanel Grid.Row="2"
+                                    Grid.ColumnSpan="2"
+                                    Orientation="Vertical">
+
+                          
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock 
+                                    FontSize="18"
+                                    Style="{StaticResource StyleHeaderProfile}"
+                                    Text="Пропущено:"/>
+
+                                <TextBlock 
+                                     FontSize="18"
+                                     Style="{StaticResource StyleDataProfile}"
+                                     Text="{Binding TotalMiss}"/>
+                            </StackPanel>
+                    
+
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  
+                                     FontSize="18"
+                                     Style="{StaticResource StyleHeaderProfile}"
+                                     Text="Индивидуальные баллы:" />
+
+                                <TextBlock 
+                                     FontSize="18"
+                                     Style="{StaticResource StyleDataProfile}"
+                                     Text="{Binding IndividualRating}"/>  
+                            </StackPanel>
+
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  
+                                     FontSize="18"
+                                     Style="{StaticResource StyleHeaderProfile}"
+                                     Text="Дополнительные баллы:"/>
+
+                                <TextBlock 
+                                     FontSize="18"
+                                     Style="{StaticResource StyleDataProfile}"
+                                     Text="{Binding ExtraPoints}"/>  
+                            </StackPanel>
+                        </StackPanel>
+
+
+                    
+
+
+                        <ListBox 
+                            Background="Transparent"
+                            Grid.Row="3" 
+                            Grid.ColumnSpan="2" 
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{Binding PointsInWeek}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock  
+                                     FontSize="18"
+                                     Style="{StaticResource StyleHeaderProfile}"
+                                     Text="Получено:"/>
+
+                                        <TextBlock 
+                                     FontSize="18"
+                                     Style="{StaticResource StyleDataProfile}"
+                                     Text="{Binding}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                    </Grid>
+                </DataTemplate>
+            </Pivot.ItemTemplate>
+          
+
+
+        </Pivot>
+
+    </Grid>
+</Page>
+

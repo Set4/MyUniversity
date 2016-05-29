@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="MyUniversity.WindowsPhone10.AuthentificationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyUniversity.WindowsPhone10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+
+    <Grid Style="{StaticResource SecondaryGridStyle}">
+
+
+        <StackPanel VerticalAlignment="Center" Margin="20" >
+            <Image 
+                Source="/Assets/logo_kgeu.png" 
+                Margin="10" 
+                Stretch="Uniform" 
+                MaxWidth="120"/>
+           
+           
+            <TextBlock  
+                  Margin="0,0,0,10" 
+                  HorizontalAlignment="Center"
+               TextAlignment="Center"
+                TextWrapping="Wrap"
+                  Text="Вход для зарегистрированных пользователей"
+               
+                  Style="{StaticResource PrimaryTextBlockStyle}"/>
+                        
+            <TextBox 
+                x:Name="txbEmail" 
+                PlaceholderText="Логин"
+                Style="{StaticResource PrimaryTextBoxStyle}"/>
+
+            <TextBlock x:Name="txblockErrorEmail" 
+                       Style="{StaticResource ErrorTextBlockStyle}"/>
+ 
+            
+            <PasswordBox x:Name="txbPassword"
+                         PlaceholderText="Пароль"
+                         Style="{StaticResource PrimaryPasswordStyle}"/>
+
+            <!--<TextBox
+                x:Name="txbPassword" 
+                PlaceholderText="password"
+                Style="{StaticResource PrimaryTextBoxStyle}"/>-->
+
+            <TextBlock x:Name="txblockErrorPassword" 
+                       Style="{StaticResource ErrorTextBlockStyle}"/>
+           
+            <Button x:Name="btnLogIn" 
+                Content="Войти" 
+                FontSize="26"
+                    
+                Margin="0,10,0,10"
+                HorizontalAlignment="Stretch"  
+                VerticalAlignment="Center" 
+                Style="{StaticResource PrimaryButtonStyle}"
+                Tapped="btnLogIn_Tapped"/>
+            
+
+            <TextBlock x:Name="txblockErrorLogin" 
+                       HorizontalAlignment="Center"
+                        Style="{StaticResource ErrorTextBlockStyle}"/>
+
+
+        </StackPanel>
+
+
+
+    </Grid>
+
+</Page>

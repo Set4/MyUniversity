@@ -1,0 +1,28 @@
+﻿<Application
+    x:Class="MyUniversity.WindowsPhone10.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyUniversity.WindowsPhone10"
+    RequestedTheme="Light">
+
+
+    <Application.Resources>
+
+        <Style x:Key="LayoutGridStyle" TargetType="Grid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush Stretch="UniformToFill" Opacity="0.8" ImageSource="/Assets/kgeu.png"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="iGridStyle" TargetType="Grid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush Stretch="None" Opacity="0.8" ImageSource="/Assets/sinie-kletka-shirokoformatnye.jpg"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+
+</Application>
+

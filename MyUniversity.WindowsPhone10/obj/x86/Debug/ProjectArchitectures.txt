@@ -1,0 +1,2 @@
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\MyUniversity.Core.csproj;neutral
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\MyUniversity.WindowsPhone10.csproj;x86
