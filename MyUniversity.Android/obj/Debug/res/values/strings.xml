@@ -1,1 +1,1 @@
-<resources><string name="Hello">Hello World, Click Me!</string><!-- <string name="ApplicationName">MyUniversity.Android</string>--></resources>
+<resources><string name="app_name">MyUniversity</string><string name="strBottomLine">Android</string><string name="open_drawer">Open</string><string name="close_drawer">Close</string><!-- <string name="ApplicationName">MyUniversity.Android</string>--><string name="information">Приложение студента</string></resources>

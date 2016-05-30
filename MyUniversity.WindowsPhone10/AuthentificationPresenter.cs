@@ -12,8 +12,8 @@ namespace MyUniversity.WindowsPhone10
 {
     public class AuthentificationPresenter
     {
-        public readonly IAuthentificationPage _view;
-        public readonly IAuthentificationModel _model;
+         readonly IAuthentificationPage _view;
+         readonly IAuthentificationModel _model;
 
         public AuthentificationPresenter(AuthentificationPage view, AuthentificationModel model)
         {
@@ -55,7 +55,7 @@ namespace MyUniversity.WindowsPhone10
 
         private void _model_LoginSucsessfull(object sender, MessageEvent e)
         {
-            _view.Perehod(_model);
+            _view.Navigation(_model);
         }
 
         private void _model_NoNetwork(object sender, MessageEvent e)

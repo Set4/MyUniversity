@@ -4,7 +4,6 @@ C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUnive
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.pdb
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\SQLite.Net.Async.dll
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\SQLite.Net.dll
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.csprojResolveAssemblyReference.cache
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.config
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\Newtonsoft.Json.dll
@@ -15,3 +14,13 @@ C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\Newtons
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.csproj.App.config
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb

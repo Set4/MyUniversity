@@ -19,6 +19,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MyUniversity.WindowsPhone10
 {
+
+
+
     public interface IAuthentificationPage
     {
      
@@ -31,7 +34,7 @@ namespace MyUniversity.WindowsPhone10
 
         void ClearViewError();
 
-        void Perehod(IAuthentificationModel _auth);
+        void Navigation(IAuthentificationModel _auth);
     }
 
     public sealed partial class AuthentificationPage : Page, IAuthentificationPage
@@ -52,7 +55,7 @@ namespace MyUniversity.WindowsPhone10
           
         }
 
-        public void Perehod(IAuthentificationModel _auth)
+        public void Navigation(IAuthentificationModel _auth)
         {
             Frame.Navigate(typeof(MainPage), _auth);
         }
