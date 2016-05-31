@@ -14,13 +14,4 @@ C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\Newtons
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.csproj.App.config
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.dll.mdb
-C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll.mdb
+C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\obj\Debug\MyUniversity.Core.csprojResolveAssemblyReference.cache

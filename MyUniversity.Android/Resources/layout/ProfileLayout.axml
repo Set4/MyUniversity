@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profile_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1976D2">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#1976D2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:textColor="#ffffff"
+                android:text="Студент(ка)"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:textColor="#ffffff"
+                android:text="E-mail:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+            <TextView
+                android:id="@+id/profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#1976D2"
+        android:text="Информация деканата"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textColor="#1976D2"
+        android:text="№ Группы:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:id="@+id/profile_Group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textColor="#1976D2"
+        android:text="Институт/факультет:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:id="@+id/profile_Department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textColor="#1976D2"
+        android:text="Кафедра:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:id="@+id/profile_Chair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textColor="#1976D2"
+        android:text="Направление/специальность:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:id="@+id/profile_Specialty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textColor="#1976D2"
+        android:text="Профиль обучения:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:id="@+id/profile_TrainingProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textColor="#1976D2"
+        android:text="Форма обучения:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <TextView
+        android:id="@+id/profile_ModeofStudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Выход"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:id="@+id/btn_logout"
+        android:textColor="#ffffff"
+        android:background="#1976D2"
+        android:gravity="center" />
+</LinearLayout>

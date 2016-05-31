@@ -231,7 +231,7 @@
                        />
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
                         <TextBlock   
                       Style="{StaticResource StyleHeaderProfile}"
                         Text="Форма обучения:"

@@ -9,47 +9,51 @@ using Android.Support.V7.App;
 using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
+using MyUniversity.Core.AuthenticationModel;
+using Newtonsoft.Json;
+using MyUniversity.Core.СommonCode;
+using Android.Graphics;
+using Java.IO;
 
 namespace MyUniversity.Android
 {
-
-    /*
-     *  string documentsPath =        System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); 
-        var path = Path.Combine(documentsPath, "my.db");
-        var db = new DataService(new SQLitePlatformAndroid(), path);
-
-     */
-
-
-
-    [Activity(Label = "MyUniversity.Android", MainLauncher = true, Icon = "@drawable/Icon")]
+    [Activity(Label = "MyUniversity.Android")]
     public class MainActivity : AppCompatActivity
     {
-        DrawerLayout drawerLayout;
 
-        protected override void OnCreate(Bundle savedInstanceStater)
+
+        public AuthentificationModel _authmodel;
+
+
+
+
+
+      //  DrawerLayout drawerLayout;
+
+
+
+
+        protected async override void OnCreate(Bundle savedInstanceStater)
         {
             base.OnCreate(savedInstanceStater);
 
+            _authmodel = new AuthentificationModel(
+                new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), 
+                System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
+
+            _authmodel.AccauntLoadet += _authmodel_AccauntLoadet;
+            _authmodel.AccauntNotLoadet += _authmodel_AccauntNotLoadet;
+
+
+           await _authmodel.LoadAccount();
+
+ /*
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            /*
+            
+           
             // Init toolbar
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.app_bar);
             SetSupportActionBar(toolbar);
@@ -83,9 +87,25 @@ namespace MyUniversity.Android
             */
 }
 
+        private void _authmodel_AccauntNotLoadet(object sender, Core.Сommon_Code.MessageEvent e)
+        {
+            var intent = new Intent(this, typeof(AuthintificationActivity));
+            intent.PutExtra("_auth", JsonConvert.SerializeObject(_authmodel));
+            this.StartActivity(intent);
+            this.Finish();
+        }
 
-//define custom title text
-protected override void OnResume()
+        private void _authmodel_AccauntLoadet(object sender, Core.Сommon_Code.MessageEvent e)
+        {
+            var intent = new Intent(this, typeof(MenuActivity));
+            intent.PutExtra("_auth", JsonConvert.SerializeObject(_authmodel));
+            this.StartActivity(intent);
+            this.Finish();
+        }
+
+        /*
+        //define custom title text
+        protected override void OnResume()
         {
             SupportActionBar.SetTitle(Resource.String.app_name);
             base.OnResume();
@@ -149,6 +169,39 @@ protected override void OnResume()
                 base.OnBackPressed();
             }
         }
+
+    */
     }
+
+
+
+
+
+
+    class StorageServise : IStorageServise
+    {
+        public async void LoadImage(byte[] image)
+        {
+
+            Bitmap bm = BitmapFactory.DecodeByteArray(image, 0, image.Length);          
+            File myPath = new File(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "imageprof.jpg");
+
+            try
+            {
+                using (var os = new System.IO.FileStream(myPath.AbsolutePath, System.IO.FileMode.Create))
+                {
+                    bm.Compress(Bitmap.CompressFormat.Jpeg, 100, os);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.Write(ex.Message);
+            }
+
+        }
+
+    }
+
+
 }
 

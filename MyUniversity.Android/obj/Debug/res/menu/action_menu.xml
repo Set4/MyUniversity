@@ -1,1 +1,13 @@
-<menu xmlns:myapp="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/action_refresh" android:icon="@drawable/ic_action_refresh" android:title="Refresh" myapp:showAsAction="always" /><item android:id="@+id/ation_attach" android:icon="@drawable/ic_action_attach" android:title="Help" myapp:showAsAction="always" /></menu>
+<menu xmlns:myapp="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><!--
+  <item 
+    android:id="@+id/action_refresh"
+    android:icon="@drawable/ic_action_refresh"
+		android:title="Refresh"
+		myapp:showAsAction="always"/>
+
+  <item
+    android:id="@+id/ation_attach"
+    android:icon="@drawable/ic_action_attach"
+		android:title="Help"
+		myapp:showAsAction="always"/>
+    --></menu>
