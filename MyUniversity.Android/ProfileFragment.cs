@@ -19,28 +19,12 @@ using Android.Graphics;
 namespace MyUniversity.Android
 {
 
-    public interface IViewProfile
+   
+    public class ProfileFragment : Fragment
     {
-        void ViewProfile(StydentProfile prof);
-
-        void ViewErrorLogOut();
-
-        void ViewErrorNoNetwork();
-        void ViewErrorAccountIncorrect();
-
-        void Logout();
-    }
-    public class ProfileFragment : Fragment, IViewProfile
-    {
-        private ProfilePresenter presenter;
-        AuthentificationModel _auth;
-
+      
         View view;
-
-
-
         Button btn_logout;
-        LinearLayout liner;
         ImageView image_profile;
         TextView txtview;
 
@@ -50,14 +34,6 @@ namespace MyUniversity.Android
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
-
-
-
-
-            
-
-
-
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -67,24 +43,6 @@ namespace MyUniversity.Android
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
              view = inflater.Inflate(Resource.Layout.ProfileLayout, container, false);
             //return base.OnCreateView(inflater, container, savedInstanceState);
-
-
-
-            var myActivity = (MenuActivity)this.Activity;
-
-
-            _auth = myActivity._auth;
-            presenter = new ProfilePresenter(this, new ProfileModel(_auth,
-                         new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(),
-                         System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)),
-                         new StorageServise());
-
-
-
-
-            presenter.GetProfile();
-
-            liner = view.FindViewById<LinearLayout>(Resource.Id.profile_layout);
 
             image_profile = view.FindViewById<ImageView>(Resource.Id.profile_image);
 
@@ -100,51 +58,8 @@ namespace MyUniversity.Android
 
         private void Btn_logout_Click(object sender, EventArgs e)
         {
-            Snackbar.Make(liner, "Выход из Аккаунта", Snackbar.LengthLong)
-              .SetAction("Выход", (v) =>
-              {
-
-                  presenter.Logout();
-
-              }).Show();
+            
            
-        }
-
-        public void ViewErrorLogOut()
-        {
-            Snackbar.Make(liner, "Ошибка Выхода Повторите попытку позже.", Snackbar.LengthLong)
-               .SetAction("OK", (v) =>{  }).Show();
-        }
-
-        public async void ViewErrorNoNetwork()
-        {
-            Snackbar.Make(liner, "Ошибка NetSeti. Повторите попытку позже.", Snackbar.LengthLong)
-              .SetAction("OK", (v) => { }).Show();
-        }
-
-        public async void ViewErrorAccountIncorrect()
-        {
-
-            Snackbar.Make(liner, "acc incorr", Snackbar.LengthLong)
-               .SetAction("OK", (v) =>
-               {
-
-                   var intent = new Intent(this.Activity, typeof(AuthintificationActivity));
-
-                   intent.PutExtra("_auth", JsonConvert.SerializeObject(_auth));
-                   this.StartActivity(intent);
-                  
-               }).Show();
-        }
-
-        public void Logout()
-        {
-
-            Snackbar.Make(liner, "acc vihod", Snackbar.LengthLong).Show();
-            var intent = new Intent(this.Activity, typeof(AuthintificationActivity));
-
-                   intent.PutExtra("_auth", JsonConvert.SerializeObject(_auth));
-                   this.StartActivity(intent);
         }
 
         public void ViewProfile(StydentProfile prof)
@@ -180,6 +95,5 @@ namespace MyUniversity.Android
         }
 
       
-
     }
 }

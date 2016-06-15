@@ -1,0 +1,265 @@
+﻿<Page
+    x:Class="MyUniversity.WindowsPhone10.ViewProfil"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyUniversity.WindowsPhone10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Style="{StaticResource SecondaryGridStyle}">
+        <ScrollViewer  
+          ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                   HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Stretch">
+
+            <Grid Style="{StaticResource SecondaryGridStyle}" Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="140"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:ConnectionId='1' 
+                    x:Name="btnflt"
+                   Opacity="0"
+                    Grid.Row="0" 
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+                    <Button.Flyout>
+                        <Flyout x:ConnectionId='11' x:Name="fltEdit"                         FlyoutPresenterStyle="{StaticResource SecondaryFlyoutStyle}">
+                            <StackPanel>
+                               
+                                <TextBlock
+                                     Style="{StaticResource PrimaryTextBlockStyle}"
+                                FontSize="18"
+                                    Text="Редактирование Имени/Фамилии"
+                                  Margin="0,10,0,10"  />
+
+                                <TextBox x:ConnectionId='12' 
+                                    x:Name="txbLasName" 
+                                    TextWrapping="NoWrap"                
+                                    PlaceholderText="Фамилия"
+                                    Style="{StaticResource PrimaryTextBoxStyle}"
+                                    FontSize="16"
+                                    Margin="0,0,0,10"/>
+                               
+                                <TextBox x:ConnectionId='13' 
+                                    x:Name="txbName" 
+                                    TextWrapping="NoWrap"                
+                                    PlaceholderText="Имя"
+                                     Style="{StaticResource PrimaryTextBoxStyle}"
+                                    FontSize="16"
+                                     Margin="0,0,0,0"/>
+                              
+                                <TextBlock x:ConnectionId='14'
+                                    x:Name="txblck_Error"
+                                     Style="{StaticResource ErrorTextBlockStyle}"   
+                                  Margin="0,5,0,5"  />
+
+                                <StackPanel HorizontalAlignment="Right" 
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                    
+                                    <Button x:ConnectionId='15' 
+                                        x:Name="btn_CancelChangeName"
+                                         Content="Отмена" 
+                                         FontSize="18"
+                                        Style="{StaticResource SecondaryButtonStyle}"
+                                                                 
+                                        Margin="0,0,10,0"/>
+                                    <Button x:ConnectionId='16' 
+                                        x:Name="btn_SaveChangeName" 
+                                       
+                                        Content="Сохранить"
+                                        Style="{StaticResource SecondaryButtonStyle}"
+                                        Foreground="#1972D2"
+                                         FontSize="18"
+                                                               
+                                         Margin="5,0,0,0"/>
+                                
+                                </StackPanel>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+
+                <StackPanel 
+                    
+                    Grid.Row="0" Grid.Column="0"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"
+                    Margin="10,0,10,0">
+
+                    <TextBlock 
+                        Margin="0,5,0,0"
+                        Style="{StaticResource PrimaryTextBlockStyle}"
+                          FontSize="18"
+                        Text="Струдент(ка)" 
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"/>
+
+
+                    <!--<TextBlock 
+                        Margin="0,5,0,0"
+                        x:Name="txblock_Name"
+                       FontSize="18"
+                        Style="{StaticResource PrimaryTextBlockStyle}"
+                        Text="Имя Фамилия" 
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Tapped="txblock_Name_Tapped"/>-->
+
+                  
+
+
+                    <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                        <TextBlock   
+                             Style="{StaticResource PrimaryTextBlockStyle}"
+                                FontSize="14"
+                     
+                        Text="E-Mail:"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"/>
+
+                        <TextBlock x:ConnectionId='10' 
+                            
+                         Style="{StaticResource StyleDataProfile}"
+                        x:Name="txblock_EMail"
+                        Text=""
+                      />
+                    </StackPanel>
+
+                </StackPanel>
+
+                <Image x:ConnectionId='2' 
+                    Grid.Row="0" Grid.Column="1" 
+                    x:Name="imgProfileImage" 
+                    Source="http://www.micronichefellas.com/wp-content/uploads/2012/05/google-penguin-update-292x300.jpg" 
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"/>
+
+                <StackPanel 
+                   
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2"
+                    Margin="10,5,10,5">
+                  
+                    <TextBlock 
+                        Style="{StaticResource PrimaryTextBlockStyle}"
+                        FontSize="18"
+                        Text="Информация деканата" 
+                        HorizontalAlignment="Center"
+                         Margin="0,0,0,5"/>
+
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock  
+                         Style="{StaticResource StyleHeaderProfile}"
+                        Text="№ Группы:"
+                       />
+
+                        <TextBlock x:ConnectionId='9' 
+                           Style="{StaticResource StyleDataProfile}"
+                        x:Name="txblockGroup"
+                        Text="ТРП-1-12"
+                       />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock  
+                           Style="{StaticResource StyleHeaderProfile}"
+                        Text="Институт/факультет:"
+                      />
+
+                        <TextBlock x:ConnectionId='8'
+                         
+                        x:Name="txblockDepartment"
+                        Text="Институт экономики и информационных технологий"
+                      Style="{StaticResource StyleDataProfile}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock   
+                         Style="{StaticResource StyleHeaderProfile}"
+                        Text="Кафедра:"
+                      />
+
+                        <TextBlock x:ConnectionId='7' 
+                             Style="{StaticResource StyleDataProfile}"
+                        x:Name="txblockChair"
+                        Text=" Информатика и информационно-управляющие системы"
+                      />
+                        
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" >
+                        <TextBlock 
+                          Style="{StaticResource StyleHeaderProfile}"
+                        Text="Направление/специальность:"
+                        />
+
+                        <TextBlock x:ConnectionId='6'  
+                             Style="{StaticResource StyleDataProfile}"
+                        x:Name="txblockSpecialty"
+                        Text="09.03.01 - Информатика и вычислительная техника"
+                      />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock   
+                     Style="{StaticResource StyleHeaderProfile}"
+                        Text="Профиль обучения:"
+                    />
+
+                        <TextBlock x:ConnectionId='5'  Style="{StaticResource StyleDataProfile}"
+                        Text="  Технологии разработки программного обеспечения"
+                        x:Name="txblockTrainingProfile"
+                      
+                       />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock   
+                      Style="{StaticResource StyleHeaderProfile}"
+                        Text="Форма обучения:"
+                      />
+
+                        <TextBlock x:ConnectionId='4' 
+                           Style="{StaticResource StyleDataProfile}"
+                        x:Name="txblockModeofStudy"
+                        Text="  Очная"
+                       />
+                    </StackPanel>
+
+                </StackPanel>
+
+                <Button x:ConnectionId='3' 
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    FontSize="18"
+                    x:Name="btnLogOut"
+                    Grid.Row="2" 
+                    Grid.Column="0" 
+                    Margin="10,0,0,0"
+                    Content="Выйти"
+                    HorizontalAlignment="Left"
+                                             
+                    />
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
+

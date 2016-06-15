@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-25T11:48:56.191</Modified>
+      <Modified>2016-06-12T13:14:01.667</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\bin\x86\Debug\MyUniversity.WindowsPhone10.exe">
       <PackagePath>entrypoint\MyUniversity.WindowsPhone10.exe</PackagePath>
-      <Modified>2016-05-25T11:48:55.296</Modified>
+      <Modified>2016-06-12T13:14:00.969</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\Microsoft.Azure.Mobile.Client\2.0.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.Ext.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.Ext.dll</PackagePath>
@@ -106,9 +106,13 @@
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
       <Modified>2015-12-28T13:07:21.442</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\Newtonsoft.Json\6.0.4\lib\netcore45\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\Newtonsoft.Json\8.0.3\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2016-01-08T14:55:24.994</Modified>
+      <Modified>2016-03-14T18:30:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
+      <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
+      <Modified>2016-02-21T18:35:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\SQLite.Net-PCL\3.1.1\lib\Windows8\SQLite.Net.Platform.WinRT.dll">
       <PackagePath>SQLite.Net.Platform.WinRT.dll</PackagePath>
@@ -286,10 +290,6 @@
       <PackagePath>System.ObjectModel.dll</PackagePath>
       <Modified>2015-12-28T13:07:31.609</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Private.DataContractSerialization\4.0.0\lib\netcore50\System.Private.DataContractSerialization.dll">
-      <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
-      <Modified>2015-12-28T13:07:19.536</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Private.Networking\4.0.0\lib\netcore50\System.Private.Networking.dll">
       <PackagePath>System.Private.Networking.dll</PackagePath>
       <Modified>2015-12-28T13:07:45.851</Modified>
@@ -370,17 +370,17 @@
       <PackagePath>System.Runtime.Numerics.dll</PackagePath>
       <Modified>2015-12-28T13:07:38.946</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.Serialization.Json\4.0.0\lib\netcore50\System.Runtime.Serialization.Json.dll">
+    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.Serialization.Json\4.0.1\lib\netcore50\System.Runtime.Serialization.Json.dll">
       <PackagePath>System.Runtime.Serialization.Json.dll</PackagePath>
-      <Modified>2015-12-28T13:07:22.508</Modified>
+      <Modified>2016-02-21T18:36:26.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.Serialization.Primitives\4.0.10\lib\dotnet\System.Runtime.Serialization.Primitives.dll">
+    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.Serialization.Primitives\4.1.0\lib\netcore50\System.Runtime.Serialization.Primitives.dll">
       <PackagePath>System.Runtime.Serialization.Primitives.dll</PackagePath>
-      <Modified>2015-12-28T13:07:21.811</Modified>
+      <Modified>2016-02-21T18:36:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.Serialization.Xml\4.0.10\lib\netcore50\System.Runtime.Serialization.Xml.dll">
+    <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.Serialization.Xml\4.1.0\lib\netcore50\System.Runtime.Serialization.Xml.dll">
       <PackagePath>System.Runtime.Serialization.Xml.dll</PackagePath>
-      <Modified>2015-12-28T13:07:22.541</Modified>
+      <Modified>2016-02-21T18:36:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\.nuget\packages\System.Runtime.WindowsRuntime\4.0.10\lib\netcore50\System.Runtime.WindowsRuntime.dll">
       <PackagePath>System.Runtime.WindowsRuntime.dll</PackagePath>
@@ -484,7 +484,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.Core\bin\Debug\MyUniversity.Core.dll">
       <PackagePath>MyUniversity.Core.dll</PackagePath>
-      <Modified>2016-05-24T17:07:27.839</Modified>
+      <Modified>2016-06-12T13:09:50.271</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UAP.2015\3.9.2\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
@@ -496,49 +496,49 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\logo_kgeu.png">
       <PackagePath>Assets\logo_kgeu.png</PackagePath>
-      <Modified>2016-04-07T13:15:33.920</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T18:09:42.000</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T18:09:42.000</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T18:09:42.000</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T18:09:42.000</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T18:09:42.000</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T18:09:42.000</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Assets\samsung-galaxy-note-3-oboi.jpg">
       <PackagePath>Assets\samsung-galaxy-note-3-oboi.jpg</PackagePath>
-      <Modified>2016-05-25T10:03:14.079</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2016-02-23T17:23:16.984</Modified>
+      <Modified>2016-05-29T09:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\bin\x86\Debug\MyUniversity.WindowsPhone10.xr.xml">
       <PackagePath>MyUniversity.WindowsPhone10.xr.xml</PackagePath>
-      <Modified>2016-05-25T11:48:55.095</Modified>
+      <Modified>2016-05-29T20:03:53.570</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -562,11 +562,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-25T11:48:55.763</Modified>
+      <Modified>2016-06-12T12:25:16.328</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\badpi\Documents\GitHub\MyUniversity\MyUniversity.WindowsPhone10\bin\x86\Debug\Core\MyUniversity.WindowsPhone10.exe">
       <PackagePath>MyUniversity.WindowsPhone10.exe</PackagePath>
-      <Modified>2016-05-25T11:48:56.188</Modified>
+      <Modified>2016-06-12T13:14:01.662</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -60,7 +61,7 @@ namespace MyUniversity.WindowsPhone10
             Frame.Navigate(typeof(MainPage), _auth);
         }
 
-        private void btnLogIn_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void btnLogIn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             presenter.LogInEvent(txbEmail.Text.Trim(), txbPassword.Password.Trim());
         }
@@ -70,10 +71,13 @@ namespace MyUniversity.WindowsPhone10
 
         public async void NotNetworc()
         {
-            var dialog = new Windows.UI.Popups.MessageDialog(
-               "Net soedinenia, poprobyite Authentification pozje");
-
-           await dialog.ShowAsync();
+          
+          await  Task.Factory.StartNew(async () =>
+            {
+                var dialog = new Windows.UI.Popups.MessageDialog(
+                             "Net soedinenia, poprobyite Authentification pozje");
+                await dialog.ShowAsync();
+            });
 
         }
 

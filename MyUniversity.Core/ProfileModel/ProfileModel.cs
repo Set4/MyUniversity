@@ -282,8 +282,6 @@ namespace MyUniversity.Core.ProfileModel
 
         SQLiteService _storage;
 
-        //IStorageProvider _storage;
-
 
         StydentProfile _stProfile = null;
     
@@ -358,6 +356,7 @@ namespace MyUniversity.Core.ProfileModel
         private void Account_IncorrectLoginANDPassword(object sender, MessageEvent e)
         {
             //login or pass ne vernii vihod  v authpage + message
+
             AccountIncorrect(this, new MessageEvent("Account_IncorrectLoginANDPassword"));
         }
 
@@ -390,7 +389,8 @@ namespace MyUniversity.Core.ProfileModel
 
         private async void Stydent_ImageSourseUpdated(object sender, MessageEvent e)
         {
-            LoadImage(this, new MessageEvent("image zagrizeno", await HttpDownloadImage(e.Item as String)));
+         
+            //LoadImage(this, new MessageEvent("image zagrizeno", await HttpDownloadImage(e.Item as String)));
         }
 
         private void _http_ResponseImpossibleTo(object sender, MessageEvent e)

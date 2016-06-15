@@ -71,7 +71,7 @@ namespace MyUniversity.Core.RatingModel
         event EventHandler<MessageEvent> NoNetwork;
 
         event EventHandler<MessageEvent> AccountIncorrect;
-        void GetNotifications();
+        void GetRating();
     }
 
   
@@ -385,7 +385,7 @@ namespace MyUniversity.Core.RatingModel
         }
 
 
-        public async void GetNotifications()
+        public async void GetRating()
         {
            
                        Task<Task<List<Lesson>>> StorageUpdateTask = new Task<Task<List<Lesson>>>(async () =>

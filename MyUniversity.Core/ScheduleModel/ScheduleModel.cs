@@ -5,6 +5,7 @@ using SQLite.Net.Attributes;
 using SQLite.Net.Interop;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -184,9 +185,16 @@ namespace MyUniversity.Core.ScheduleModel
 
         async void GetSheduleItems()
         {
-            schedules= await _storage.GetAllItems<ScheduleItem>().ContinueWith<List<ScheduleItem>>
-                ((i) => i.Result.Where
-                (item => ((item.EvenWeek == EvenWeek || item.EvenWeek == "*/**") && item.DayWeek == DayWeek) || item.Date == Date).ToList());
+            try
+            {
+                schedules = await _storage.GetAllItems<ScheduleItem>().ContinueWith<List<ScheduleItem>>
+                    ((i) => i.Result.Where
+                    (item => ((item.EvenWeek == EvenWeek || item.EvenWeek == "*/**") && item.DayWeek == DayWeek) || item.Date == Date).ToList());
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("Error: "+ex.Message.ToString());
+            }
         }
 
         public DayData(DateTime date, string evenWeek, SQLiteService _storage)
@@ -207,7 +215,7 @@ namespace MyUniversity.Core.ScheduleModel
         static MobileServiceClient MobileService =
             new MobileServiceClient("http://myuniversity.azurewebsites.net");
 
-        private IMobileServiceTable<ScheduleItem> scheduleItemTable = MobileService.GetTable<ScheduleItem>();
+        //private IMobileServiceTable<ScheduleItem> scheduleItemTable = MobileService.GetTable<ScheduleItem>();
 
         public event EventHandler<MessageEvent> ErrorGetItems = delegate { };
 
@@ -215,71 +223,71 @@ namespace MyUniversity.Core.ScheduleModel
 
         public async Task<List<ScheduleItem>> GetScheduleItem(string group)
         {
-            MobileServiceCollection<ScheduleItem, ScheduleItem> items;
+            //MobileServiceCollection<ScheduleItem, ScheduleItem> items;
 
-            try
-            {
-                items = await scheduleItemTable
-                    .Where(item => item.Group == group)
-                    .ToCollectionAsync();
-            }
-            catch (MobileServiceInvalidOperationException e)
-            {
-                ErrorGetItems(this, new MessageEvent("Error loading items:\n" + e.Message.ToString()));
-                return null;
-            }
+            //try
+            //{
+            //    items = await scheduleItemTable
+            //        .Where(item => item.Group == group)
+            //        .ToCollectionAsync();
+            //}
+            //catch (MobileServiceInvalidOperationException e)
+            //{
+            //    ErrorGetItems(this, new MessageEvent("Error loading items:\n" + e.Message.ToString()));
+            //    return null;
+            //}
 
 
 
-            return items.ToList();
-
+            //return items.ToList();
+            return null;
         }
 
 
         public async Task UpdateCheckedTodoItem()
         {
-            await scheduleItemTable.InsertAsync(new ScheduleItem()
-            {
-                Group = "ТРП-1-12",
-                LessonName = "Экономика",
-                LessonType = "Лекция",
-                Audience = "А302",
-                TeacherName = "Фамилия И.О.",
-                TimeStart = "12:10",
-                TimeEnd = "13:10",
-                EvenWeek = "*/**",
-                DayWeek = "Понедельник"
+            //await scheduleItemTable.InsertAsync(new ScheduleItem()
+            //{
+            //    Group = "ТРП-1-12",
+            //    LessonName = "Экономика",
+            //    LessonType = "Лекция",
+            //    Audience = "А302",
+            //    TeacherName = "Фамилия И.О.",
+            //    TimeStart = "12:10",
+            //    TimeEnd = "13:10",
+            //    EvenWeek = "*/**",
+            //    DayWeek = "Понедельник"
 
-            });
+            //});
 
-            await scheduleItemTable.InsertAsync(new ScheduleItem()
-            {
-                Group = "ТРП-1-12",
-                LessonName = "Экономика",
-                LessonType = "Практика",
-                Audience = "А302",
-                TeacherName = "Фамилия И.О.",
-                TimeStart = "13:20",
-                TimeEnd = "14:10",
-                EvenWeek = "*",
-                DayWeek = "Вторник"
+            //await scheduleItemTable.InsertAsync(new ScheduleItem()
+            //{
+            //    Group = "ТРП-1-12",
+            //    LessonName = "Экономика",
+            //    LessonType = "Практика",
+            //    Audience = "А302",
+            //    TeacherName = "Фамилия И.О.",
+            //    TimeStart = "13:20",
+            //    TimeEnd = "14:10",
+            //    EvenWeek = "*",
+            //    DayWeek = "Вторник"
 
-            });
+            //});
 
 
-            await scheduleItemTable.InsertAsync(new ScheduleItem()
-            {
-                Group = "ТРП-1-12",
-                LessonName = "Экономика",
-                LessonType = "Лр. работа",
-                Audience = "А302",
-                TeacherName = "Фамилия И.О.",
-                TimeStart = "13:20",
-                TimeEnd = "14:10",
-                EvenWeek = "**",
-                DayWeek = "Среда"
+            //await scheduleItemTable.InsertAsync(new ScheduleItem()
+            //{
+            //    Group = "ТРП-1-12",
+            //    LessonName = "Экономика",
+            //    LessonType = "Лр. работа",
+            //    Audience = "А302",
+            //    TeacherName = "Фамилия И.О.",
+            //    TimeStart = "13:20",
+            //    TimeEnd = "14:10",
+            //    EvenWeek = "**",
+            //    DayWeek = "Среда"
 
-            });
+            //});
         }
     }
 
@@ -336,7 +344,7 @@ namespace MyUniversity.Core.ScheduleModel
             });
 
 
-           _azure = new AzureSchedule();
+          _azure = new AzureSchedule();
 
 
 

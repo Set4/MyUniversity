@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/lesson_nameLesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/lesson_totalMiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/lesson_IndividualRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/lesson_ExtraPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/lesson_TotalPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/lesson_TotalPointsPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="20dp" />
+    <ListView
+        android:id="@+id/lesson_PointsInWeekList"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+</LinearLayout>

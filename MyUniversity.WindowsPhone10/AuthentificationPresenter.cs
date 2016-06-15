@@ -28,7 +28,7 @@ namespace MyUniversity.WindowsPhone10
 
             _model.NoNetwork += _model_NoNetwork;
 
-            _model.LoginSucsessfull += _model_LoginSucsessfull;
+           _model.LoginSucsessfull += _model_LoginSucsessfull;
         }
 
 
@@ -55,6 +55,7 @@ namespace MyUniversity.WindowsPhone10
 
         private void _model_LoginSucsessfull(object sender, MessageEvent e)
         {
+
             _view.Navigation(_model);
         }
 

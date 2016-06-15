@@ -172,9 +172,9 @@ namespace MyUniversity.Core.AuthenticationModel
 
         private void _http_ResponseImpossibleTo(object sender, MessageEvent e)
         {
-            NoNetwork(this, new MessageEvent("NoNetwork"));
+                  NoNetwork(this, new MessageEvent("NoNetwork"));
         }
-
+        
 
 
         public event EventHandler<MessageEvent> AccauntLoadet = delegate { };

@@ -43,7 +43,7 @@ namespace MyUniversity.WindowsPhone10
 
         public void GetNotifications()
         {
-            _model.GetNotifications();
+            _model.GetRating();
         }
 
 

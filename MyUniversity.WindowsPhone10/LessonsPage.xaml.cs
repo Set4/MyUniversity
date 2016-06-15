@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -105,18 +106,24 @@ namespace MyUniversity.WindowsPhone10
         }
         public async void ViewErrorNoNetwork()
         {
-            var dialog = new Windows.UI.Popups.MessageDialog(" Повторите попытку позже.", "Ошибка NEySEti");
+            await Task.Factory.StartNew(async () =>
+            {
+                var dialog = new Windows.UI.Popups.MessageDialog(" Повторите попытку позже.", "Ошибка NEySEti");
 
-            await dialog.ShowAsync();
+                await dialog.ShowAsync();
+            });
         }
 
         public async void ViewErrorAccountIncorrect()
         {
-            var dialog = new Windows.UI.Popups.MessageDialog(
+            await Task.Factory.StartNew(async () =>
+            {
+                var dialog = new Windows.UI.Popups.MessageDialog(
               "acc incorr");
 
-            await dialog.ShowAsync();
-            Frame.Navigate(typeof(AuthentificationPage), acc);
+                await dialog.ShowAsync();
+                Frame.Navigate(typeof(AuthentificationPage), acc);
+            });
         }
 
     }

@@ -144,7 +144,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HeaderTemplate" />
       <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="Background" />
       <RootEvent Name="RightTapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
