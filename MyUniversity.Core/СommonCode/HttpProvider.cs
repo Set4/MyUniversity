@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,16 +15,13 @@ namespace MyUniversity.Core.Сommon_Code
         /// <summary>
         /// Начальный адрес запроса new Uri("http://e.kgeu.ru");
         /// </summary>
-        Uri BaseUri
-        {
-            get
-            {
-                return new Uri("http://e.kgeu.ru");
-            }
-        }
-
-        CookieContainer Cookiecontainer { get; set; }
+        Uri BaseUri { get; set; }
       
+
+        //pri izmenenii cookie peresozdaiem httpclient
+     public  CookieContainer Cookiecontainer { get; set; }
+      
+       // ?????oshibka
         HttpClient httpclient = null;
         HttpClient Httpclient
         {
@@ -65,15 +63,20 @@ namespace MyUniversity.Core.Сommon_Code
             }
         }
 
-
-        public HttpProvider(CookieCollection _collection=null)
+        public HttpProvider(CookieCollection _collection = null)
         {
+        }
+        public HttpProvider(Uri baseuri, CookieCollection _collection=null)
+        {
+            BaseUri = baseuri;
+
             Cookiecontainer = new CookieContainer();
             if(_collection!=null)
             Cookiecontainer.Add(BaseUri, _collection);
         }
 
 
+        #region events
 
         /// <summary>
         /// данные post-запроса неверны
@@ -90,9 +93,9 @@ namespace MyUniversity.Core.Сommon_Code
         /// </summary>
         public event EventHandler<MessageEvent> ResponseImpossibleTo = delegate { };
 
+        #endregion
 
-
-
+        #region Methods: get, post
         /// <summary>
         /// Http get-запрос к сайту http://e.kgeu.ru
         /// </summary>
@@ -109,6 +112,7 @@ namespace MyUniversity.Core.Сommon_Code
                 else if (response.StatusCode == HttpStatusCode.Found)
                 {
                     AuthenticationTokensOutdated(this, new MessageEvent("Токены устарели, неоходим повторный вход(получение токенов)"));
+                    Debug.WriteLine("get-метод: {0}", "Токены устарели");
                     return null;
                 }
                 else
@@ -117,6 +121,7 @@ namespace MyUniversity.Core.Сommon_Code
             }
             catch (Exception ex)
             {
+                Debug.WriteLine("get-метод, ответ не получен:  {0}", ex.Message);
                 ResponseImpossibleTo(this, new MessageEvent("get-метод, ответ не получен: " + ex.Message.ToString()));
                 return null;
             }
@@ -151,6 +156,7 @@ namespace MyUniversity.Core.Сommon_Code
                 else if (response.StatusCode == HttpStatusCode.OK)
                 {
                     PostDataisIncorrect(this, new MessageEvent("данные post-запроса неверны"));
+                    Debug.WriteLine("post-метод: {0}", "данные post - запроса неверны");
                     return null;
                 }
                 else
@@ -159,11 +165,12 @@ namespace MyUniversity.Core.Сommon_Code
             }
             catch (Exception ex)
             {
+                Debug.WriteLine("post-метод, ответ не получен:   {0}", ex.Message);
                 ResponseImpossibleTo(this, new MessageEvent("post-метод, ответ не получен: " + ex.Message.ToString()));
                 return null;
             }
         }
-
+        #endregion
     }
 
 }

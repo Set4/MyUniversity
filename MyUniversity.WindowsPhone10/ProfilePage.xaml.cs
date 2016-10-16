@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -23,82 +24,49 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MyUniversity.WindowsPhone10
 {
-    public interface IViewProfile
-    {
-        void ViewProfile(StydentProfile prof);
-
-        void ViewErrorLogOut();
-
-        void ViewErrorNoNetwork();
-        void ViewErrorAccountIncorrect();
-
-        void Logout();
-    }
    
-    public sealed partial class ViewProfil : Page, IViewProfile
+   
+    public sealed partial class ViewProfil : Page
     {
 
-        private ProfileModellPresenter presenter;
-        AuthentificationModel acc;
-     
+        //private ProfileModellPresenter presenter;
+        // AuthentificationModel acc;
+        AuthentificationModelLogOut _auth;
+
         public ViewProfil()
         {
             this.InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewProfile(e.Parameter as StydentProfile);
 
-            acc = e.Parameter as AuthentificationModel;
-            presenter = new ProfileModellPresenter(this, new ProfileModel(e.Parameter as AuthentificationModel, new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), ApplicationData.Current.LocalFolder.Path), new StorageServise());
+            _auth = new AuthentificationModelLogOut(App.platform, App.documentsPath);
+          //  acc = e.Parameter as AuthentificationModel;
+          //  presenter = new ProfileModellPresenter(this, new ProfileModel(e.Parameter as AuthentificationModel, new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), ApplicationData.Current.LocalFolder.Path), new StorageServise());
 
-            presenter.GetProfile();
+            //  presenter.GetProfile();
         }
 
-      public async void ViewErrorLogOut()
-        {
-            await Task.Factory.StartNew(async () =>
+      
+
+        public async void Logout()
+        {//
+           if(await _auth.LogOutAccaunt())
+                CoreApplication.Exit();
+           else
             {
-                var dialog = new Windows.UI.Popups.MessageDialog(" Повторите попытку позже.", "Ошибка Выхода");
-
+                var dialog = new Windows.UI.Popups.MessageDialog("Повторите попытку выхода",
+                           "Ошибка!");
                 await dialog.ShowAsync();
-            });
-        }
-
-        public async void ViewErrorNoNetwork()
-        {
-            await Task.Factory.StartNew(async () =>
-            {
-
-                var dialog = new Windows.UI.Popups.MessageDialog(" Повторите попытку позже.", "Ошибка NEySEti");
-
-                await dialog.ShowAsync();
-            });
-        }
-
-        public async void ViewErrorAccountIncorrect()
-        {
-            await Task.Factory.StartNew(async () =>
-            {
-                var dialog = new Windows.UI.Popups.MessageDialog(
-              "acc incorr");
-
-                await dialog.ShowAsync();
-                Frame.Navigate(typeof(AuthentificationPage), acc);
-            });
-        }
-
-        public  void Logout()
-        {
-         
-            Frame.Navigate(typeof(AuthentificationPage), acc);
+            }
         }
 
         public void ViewProfile(StydentProfile prof)
         {
 
-          
+            txblock_Name.Text = prof.LastName + " " + prof.FierstName;
             txblock_EMail.Text = prof.Email;
-
             txblockGroup.Text = prof.GroupNumber;
             txblockDepartment.Text = prof.Department;
             txblockChair.Text = prof.Chair;
@@ -112,13 +80,8 @@ namespace MyUniversity.WindowsPhone10
 
         private void btnLogOut_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            presenter.Logout();
+            Logout();
         }
-
-       
-
-      
-
 
         private void btnCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -136,7 +99,6 @@ namespace MyUniversity.WindowsPhone10
 
         private void txblock_Name_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            
             fltEdit.ShowAt(btnflt);
         }
     }

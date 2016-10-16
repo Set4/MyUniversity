@@ -33,8 +33,8 @@ namespace MyUniversity.WindowsPhone10
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             mess= e.Parameter as Notification;
-
-            txblckDate.Text = mess.Date;
+            
+            txblckDate.Text =mess.Date;
             txblckHeader.Text = mess.Header;
             txblockText.Text = mess.Text;
 

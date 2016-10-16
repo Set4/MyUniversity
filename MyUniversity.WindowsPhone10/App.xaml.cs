@@ -21,6 +21,8 @@ using MyUniversity.Core.ProfileModel;
 using MyUniversity.Core.Сommon_Code;
 using Windows.Storage;
 using System.Threading.Tasks;
+using MyUniversity.Core.StartModel;
+using SQLite.Net.Interop;
 
 namespace MyUniversity.WindowsPhone10
 {
@@ -29,10 +31,10 @@ namespace MyUniversity.WindowsPhone10
     /// </summary>
    public sealed partial class App : Application
     {
+        public static ISQLitePlatform platform = new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT();
+        public static string documentsPath = ApplicationData.Current.LocalFolder.Path;
 
-      
-
-         public AuthentificationModel _authmodel= new AuthentificationModel(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), ApplicationData.Current.LocalFolder.Path);
+        //  public AuthentificationModel _authmodel= new AuthentificationModel(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), ApplicationData.Current.LocalFolder.Path);
 
 
 
@@ -53,35 +55,35 @@ namespace MyUniversity.WindowsPhone10
           
 
 
-            _authmodel.AccauntLoadet += _auth_AccauntLoadet;
-            _authmodel.AccauntNotLoadet += _auth_AccauntNotLoadet;
+          //  _authmodel.AccauntLoadet += _auth_AccauntLoadet;
+         //   _authmodel.AccauntNotLoadet += _auth_AccauntNotLoadet;
           
         }
 
-        private void _auth_AccauntNotLoadet(object sender, MessageEvent e)
-        {
-           // Frame.Navigate(typeof(MainPage), _auth);
+        //private void _auth_AccauntNotLoadet(object sender, MessageEvent e)
+        //{
+        //   // Frame.Navigate(typeof(MainPage), _auth);
 
-            startFrame = new Frame();
-                startFrame.Navigate(typeof(AuthentificationPage), _authmodel);
-                Window.Current.Content = startFrame;
-                Window.Current.Activate();
-        }
+        //    startFrame = new Frame();
+        //        startFrame.Navigate(typeof(AuthentificationPage), _authmodel);
+        //        Window.Current.Content = startFrame;
+        //        Window.Current.Activate();
+        //}
 
-        private void _auth_AccauntLoadet(object sender, MessageEvent e)
-        {
-            startFrame = new Frame();
-            startFrame.Navigate(typeof(MainPage), _authmodel);
-            Window.Current.Content = startFrame;
-            Window.Current.Activate();
+        //private void _auth_AccauntLoadet(object sender, MessageEvent e)
+        //{
+        //    startFrame = new Frame();
+        //    startFrame.Navigate(typeof(MainPage), _authmodel);
+        //    Window.Current.Content = startFrame;
+        //    Window.Current.Activate();
 
-        }
+        //}
 
 
 
-      
 
-        
+
+
 
         /// <summary>
         /// Вызывается при обычном запуске приложения пользователем.  Будут использоваться другие точки входа,
@@ -93,12 +95,26 @@ namespace MyUniversity.WindowsPhone10
         {
 
 
-             await _authmodel.LoadAccount();
-
-         
+            // await _authmodel.LoadAccount();
 
 
- 
+            Tuple<StorageAccount, StorageAccount, StorageAccount, StorageAccount> authdata = await StartService.VerificationAuthorized(platform, documentsPath);
+            if (authdata != null)
+            {
+                startFrame = new Frame();
+                startFrame.Navigate(typeof(MainPage), authdata);
+                Window.Current.Content = startFrame;
+                Window.Current.Activate();
+            }
+            else
+            {
+                startFrame = new Frame();
+                startFrame.Navigate(typeof(AuthentificationPage));
+                Window.Current.Content = startFrame;
+                Window.Current.Activate();
+            }
+
+
 
 
 #if DEBUG

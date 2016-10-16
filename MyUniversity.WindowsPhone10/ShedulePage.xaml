@@ -123,12 +123,12 @@
         <DataTemplate x:Key="DayDataItemsTemplate" >
             <StackPanel HorizontalAlignment="Stretch" Background="Transparent" Padding="5">
                 <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding Date}"/>
-                
-                 <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding DayWeek}"/>
+                    <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding DateCustom}"/>
+
+                    <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding DayWeekCustom}"/>
                  </StackPanel>
-                
-                    <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding TimeStart}"/>
+
+                <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding StartTime}"/>
                 
                 <Line 
                          HorizontalAlignment="Center"
@@ -176,20 +176,23 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
- 
+
         <Pivot 
             x:Name="pivotShedule" 
-            RightTapped="pivotShedule_RightTapped"
-           
-            >
+            RightTapped="pivotShedule_RightTapped">
+
             <Pivot.HeaderTemplate>
                 <DataTemplate>
-                    <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding Header}"/>
+                    <TextBlock Margin="5" 
+                               HorizontalAlignment="Left" 
+                               Text="{Binding Header}"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
             <Pivot.ItemTemplate>
                 <DataTemplate>
                     <ListBox 
+                        SelectionChanged="listboxSheduleItems_SelectionChanged"
+                        SelectionMode="Single"
                         HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         ItemsSource="{Binding Content}"

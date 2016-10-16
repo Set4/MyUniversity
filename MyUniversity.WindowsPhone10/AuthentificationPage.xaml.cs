@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,24 +26,21 @@ namespace MyUniversity.WindowsPhone10
 
     public interface IAuthentificationPage
     {
-     
-
         void ViewEmailError();
         void ViewPasswordError();
         void ViewLogInError();
 
-        void NotNetworc();
+        void ViewError(string message);
 
         void ClearViewError();
-
-        void Navigation(IAuthentificationModel _auth);
+        void EndAuth(Tuple<StorageAccount, StorageAccount, StorageAccount, StorageAccount> auth);
     }
 
     public sealed partial class AuthentificationPage : Page, IAuthentificationPage
     {
-        private AuthentificationPresenter presenter;
+        // private AuthentificationPresenter presenter;
 
-     
+        private AuthPresenter presenter;
 
         public AuthentificationPage()
         {
@@ -51,34 +49,30 @@ namespace MyUniversity.WindowsPhone10
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            presenter = new AuthentificationPresenter(this, e.Parameter as AuthentificationModel);
+            // presenter = new AuthentificationPresenter(this, e.Parameter as AuthentificationModel);
 
-          
+            presenter = new AuthPresenter(this, new AuthentificationModel(App.platform, App.documentsPath));
         }
 
-        public void Navigation(IAuthentificationModel _auth)
+        public void EndAuth(Tuple<StorageAccount, StorageAccount, StorageAccount, StorageAccount> auth)
         {
-            Frame.Navigate(typeof(MainPage), _auth);
+            Frame.Navigate(typeof(MainPage), auth);
+        
         }
 
         private async void btnLogIn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            presenter.LogInEvent(txbEmail.Text.Trim(), txbPassword.Password.Trim());
+            await presenter.LogInEvent(txbEmail.Text.Trim(), txbPassword.Password.Trim());
         }
 
 
 
 
-        public async void NotNetworc()
+        public async void ViewError(string message)
         {
-          
-          await  Task.Factory.StartNew(async () =>
-            {
-                var dialog = new Windows.UI.Popups.MessageDialog(
-                             "Net soedinenia, poprobyite Authentification pozje");
+                var dialog = new Windows.UI.Popups.MessageDialog(message,
+                             "Net soedinenia");
                 await dialog.ShowAsync();
-            });
-
         }
 
         public void ViewEmailError()

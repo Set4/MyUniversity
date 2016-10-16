@@ -21,22 +21,23 @@
             Orientation="Horizontal" 
             Background="#1976D2">
             
-            <Button x:ConnectionId='8' 
+            <Button x:ConnectionId='11' 
                 x:Name="btnMainMenu"
                 FontSize="28" Foreground="WhiteSmoke"
                 FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                 Width="40" Height="40" Background="Transparent"
                                            />
 
-            <TextBlock x:ConnectionId='9'  Margin="15,0,0,0"
+            <TextBlock x:ConnectionId='12'  Margin="15,0,0,0"
                 x:Name="txblHeader"
+                        FontWeight="SemiBold"
                 VerticalAlignment="Center" 
-                Text="Header" 
+                Text="Мой Институт" 
                 Foreground="#FFFFFF" 
-                FontSize="24"/>
+                FontSize="18"/>
 
             <!--Надпись Demo-->
-            <Border Background="Green" Height="18" Width="80" Margin="180,-48,0,0" >
+            <Border Background="Green" Height="18" Width="80" Margin="180,-48,0,0" Visibility="Collapsed" >
                 <Border.RenderTransform>
                     <CompositeTransform Rotation="47.524"/>
                 </Border.RenderTransform>
@@ -64,7 +65,12 @@
                     </Grid.RowDefinitions>
 
                     <!--Профиль-->
-                    <Grid Style="{StaticResource iGridStyle}" Grid.ColumnSpan="2" Grid.Row="0">
+                    <Grid x:ConnectionId='2' Style="{StaticResource iGridStyle}"  Grid.ColumnSpan="2" Grid.Row="0"                     >
+                        <Grid.Background>
+
+                            <ImageBrush ImageSource="Assets/samsung-galaxy-note-3-oboi.jpg" 
+                                        Opacity="0.800000011920929" Stretch="None"/>
+                        </Grid.Background>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="90"/>
                             <RowDefinition Height="*"/>
@@ -80,9 +86,9 @@
                                  Height="80" 
                                  Width="80">
                             <Ellipse.Fill>
-                                <ImageBrush x:ConnectionId='6' x:Name="imgProfile" 
+                                <ImageBrush x:ConnectionId='9' x:Name="imgProfile" 
                                             Stretch="UniformToFill"  
-                                            ImageSource="/Assets/dorian.jpg"/>
+                                            ImageSource="ms-appdata:///local/imageprof.jpg"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
@@ -90,30 +96,32 @@
                             <StackPanel 
                                 VerticalAlignment="Center" 
                                 HorizontalAlignment="Center"  
-                                Orientation="Horizontal"    
-                                Margin="5,0,0,0" >
+                                Orientation="Vertical"    
+                                Margin="5,0,0,5" >
 
-                                <TextBlock x:ConnectionId='5'  x:Name="txblckNameProfile"
-                                            Text="Петр Петров" 
+                                <TextBlock x:ConnectionId='8'  x:Name="txblckNameProfile"
+                                            Text="" 
                                             Foreground="White" 
-                                            FontSize="22" 
+                                            FontSize="14" 
+                                            TextWrapping="Wrap"
                                             VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center"/>
+                                <TextBlock 
+                                            Text="(открыть профиль)" 
+                                            Foreground="White" 
+                                            FontSize="8" 
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Bottom" 
                                             HorizontalAlignment="Center"/>
 
                             </StackPanel>
-                            <TextBlock x:ConnectionId='4' x:Name="txblckGroupProfile1"
-                                       Text="ТРП-1-12" 
-                                       FontWeight="Light" 
-                                       Foreground="White" 
-                                       FontSize="10" 
-                                       VerticalAlignment="Center" 
-                                       HorizontalAlignment="Center"/>
+                        
                         </StackPanel>
                     </Grid>
 
 
 
-                    <StackPanel  Grid.Row="1" Background="Gray">
+                    <StackPanel  Grid.Row="1" Background="#B6B6B6">
 
                         <!--Линия разграничитель-->
                         <Line  Margin="0,0,0,0"
@@ -127,23 +135,42 @@
                                StrokeThickness="2"/>
 
 
-                        <Button  Background="Transparent" 
+                        <Button x:ConnectionId='4'  Background="Transparent" 
                                  HorizontalAlignment="Stretch" 
                                  Height="40" 
-                                 HorizontalContentAlignment="Left" >
+                                 HorizontalContentAlignment="Left" 
+                                                              >
                             <Button.Content>
                                 <StackPanel  Orientation="Horizontal">
-                                    <TextBlock  
-                                        Text="&#xE825;"  
-                                        FontFamily="Segoe MDL2 Assets"  
+                                    <SymbolIcon  
+                                        Symbol="Mail"
+                                        Width="40" 
+                                        Height="40" 
+                                        VerticalAlignment="Center"/>
+
+                                    <!--  <TextBlock  
+                                     Text="#;" 
+                                      FontFamily="Segoe MDL2 Assets "
                                         FontSize="24" 
-                                        VerticalAlignment="Center" />
+                                        VerticalAlignment="Center" /> --> 
                                     <TextBlock  
-                                        Margin="10,0,0,0" 
-                                        Text="Button 1" 
+                                        Margin="5,0,0,0" 
+                                        Text="Уведомления" 
                                         FontWeight="SemiBold" 
                                         FontSize="18" 
-                                        VerticalAlignment="Center" />
+                                        VerticalAlignment="Center" 
+                                        />
+                                    <StackPanel x:ConnectionId='7'
+                                        x:Name="stpCountUnreadMessage"
+                                        VerticalAlignment="Center"
+                                 
+                                         Margin="5,0,0,0" 
+                                        Background="#1976D2"
+                                        CornerRadius="5"
+                                        >
+                                    
+                                    </StackPanel>
+                                    
                                 </StackPanel>
                             </Button.Content>
                         </Button>
@@ -151,12 +178,12 @@
 
 
 
-                        <StackPanel  Background="DimGray">
-                            <Button x:ConnectionId='2' Background="Transparent" 
+                        <!--<StackPanel  Background="DimGray">
+                            <Button Background="Transparent" 
                                     HorizontalAlignment="Stretch" 
                                     Height="40" 
                                     HorizontalContentAlignment="Center" 
-                                                          >
+                                    Tapped="Button_Tapped">
                                 <Button.Content>
                                     <StackPanel  Orientation="Horizontal">
                                         <TextBlock  
@@ -169,10 +196,10 @@
                                 </Button.Content>
                             </Button>
 
-                            <Button x:ConnectionId='3' Background="Transparent" 
+                            <Button Background="Transparent" 
                                     HorizontalAlignment="Stretch" 
                                     Height="40" 
-                                    HorizontalContentAlignment="Center"                      >
+                                    HorizontalContentAlignment="Center" Click="Button_Click" >
                                 <Button.Content>
                                     <StackPanel  Orientation="Horizontal">
                                         <TextBlock  
@@ -184,57 +211,43 @@
                                     </StackPanel>
                                 </Button.Content>
                             </Button>
-                        </StackPanel>
+                        </StackPanel>-->
 
 
 
 
-                        <Button Background="Transparent" 
+                        <Button x:ConnectionId='5' Background="Transparent" 
                                 HorizontalAlignment="Stretch" 
                                 Height="40" 
-                                HorizontalContentAlignment="Left" >
+                                HorizontalContentAlignment="Left" 
+                                                      >
                             <Button.Content>
                                 <StackPanel  Orientation="Horizontal">
-                                    <TextBlock  Text="&#xE825;" 
-                                                FontFamily="Segoe MDL2 Assets"  
-                                                FontSize="24" 
-                                                VerticalAlignment="Center" />
+                                    <SymbolIcon  
+                                        Symbol="PreviewLink"
+                                        Width="40" 
+                                        Height="40" 
+                                        VerticalAlignment="Center"/>
                                     <TextBlock  Margin="10,0,0,0" 
-                                                Text="Button 1" 
+                                                Text="Успеваемость" 
                                                 FontWeight="SemiBold" 
                                                 FontSize="18" 
-                                                VerticalAlignment="Center" />
+                                                VerticalAlignment="Center"  />
                                 </StackPanel>
                             </Button.Content>
                         </Button>
 
 
-                        <StackPanel  Background="DimGray">
-                            <Button Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Center" >
-                                <Button.Content>
-                                    <StackPanel  Orientation="Horizontal">
 
-                                        <TextBlock  Margin="0,0,0,0" Text="Button 1" FontWeight="Light" FontSize="18" VerticalAlignment="Center" />
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
-
-
-                            <Button Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Center" >
-                                <Button.Content>
-                                    <StackPanel  Orientation="Horizontal">
-
-                                        <TextBlock  Margin="0,0,0,0" Text="Button 1" FontWeight="Light" FontSize="18" VerticalAlignment="Center" />
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
-                        </StackPanel>
-
-                        <Button Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Left" >
+                        <Button x:ConnectionId='6'                          Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Left" >
                             <Button.Content>
                                 <StackPanel  Orientation="Horizontal">
-                                    <TextBlock  Text="&#xE825;"  FontFamily="Segoe MDL2 Assets"  FontSize="24" VerticalAlignment="Center" />
-                                    <TextBlock  Margin="10,0,0,0" Text="Button 1" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" />
+                                    <SymbolIcon  
+                                        Symbol="CalendarWeek"
+                                        Width="40" 
+                                        Height="40" 
+                                        VerticalAlignment="Center"/>
+                                    <TextBlock  Margin="10,0,0,0" Text="Расписание" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Bottom" />
                                 </StackPanel>
                             </Button.Content>
                         </Button>
@@ -253,25 +266,26 @@
                               Y2="0"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
-                              Stroke="Black"
+                              Stroke="#1976D2"
                               StrokeThickness="2"/>
 
 
-                        <Button Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Left" >
+                        <Button x:ConnectionId='3' Background="Transparent" 
+                                HorizontalAlignment="Stretch" 
+                                Height="40" HorizontalContentAlignment="Left" 
+                                                        >
                             <Button.Content>
                                 <StackPanel  Orientation="Horizontal">
-                                    <TextBlock  Text="&#xE825;"  FontFamily="Segoe MDL2 Assets"  FontSize="24" VerticalAlignment="Center" />
-                                    <TextBlock  Margin="10,0,0,0" Text="Button 1" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" />
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-
-
-                        <Button Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Left" >
-                            <Button.Content>
-                                <StackPanel  Orientation="Horizontal">
-                                    <TextBlock  Text="&#xE825;"  FontFamily="Segoe MDL2 Assets"  FontSize="24" VerticalAlignment="Center" />
-                                    <TextBlock  Margin="10,0,0,0" Text="Button 1" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" />
+                                    <SymbolIcon  
+                                        Symbol="Help"
+                                        Width="40" 
+                                        Height="40" 
+                                        VerticalAlignment="Center"/>
+                                    <TextBlock  Margin="10,0,0,0" 
+                                                Text="Информация" 
+                                                FontWeight="SemiBold" 
+                                                FontSize="18" 
+                                                VerticalAlignment="Center" />
                                 </StackPanel>
                             </Button.Content>
                         </Button>
@@ -282,7 +296,7 @@
 
             <!--Содержание Страницы-->
             <SplitView.Content>
-                <Frame x:ConnectionId='7' x:Name="frameMainPageContent"/>
+                <Frame x:ConnectionId='10' x:Name="frameMainPageContent"/>
             </SplitView.Content>
         
         </SplitView>

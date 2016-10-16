@@ -37,29 +37,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationModel\AuthentificationModel.cs" />
-    <Compile Include="RatingModel\RatingModel.cs" />
-    <Compile Include="ScheduleModel\AzureSchedule.cs" />
-    <Compile Include="ScheduleModel\ScheduleHttp.cs" />
-    <Compile Include="ScheduleModel\ScheduleModel.cs" />
-    <Compile Include="ScheduleModel\ScheduleParse.cs" />
-    <Compile Include="ScheduleModel\StorageSchedule.cs" />
-    <Compile Include="NotificationModel\HttpMessage.cs" />
-    <Compile Include="NotificationModel\Message.cs" />
-    <Compile Include="NotificationModel\MessageData.cs" />
-    <Compile Include="NotificationModel\NotificationModel.cs" />
-    <Compile Include="NotificationModel\ParseMessage.cs" />
-    <Compile Include="NotificationModel\StorageMessage.cs" />
-    <Compile Include="ProfileModel\HttpProfile.cs" />
-    <Compile Include="ProfileModel\ParseProfile.cs" />
-    <Compile Include="ProfileModel\ProfileData.cs" />
-    <Compile Include="ProfileModel\ProfileModel.cs" />
-    <Compile Include="ProfileModel\StorageProfile.cs" />
+    <Compile Include="AuthenticationService\AuthentificationService.cs" />
+    <Compile Include="Model\MainModel.cs" />
+    <Compile Include="NotificationService\NotificationService.cs" />
+    <Compile Include="ProfileService\ProfileService.cs" />
+    <Compile Include="RatingModel\LessonsService.cs" />
+    <Compile Include="ScheduleModel\ScheduleService.cs" />
+    <Compile Include="NotificationService\NotificationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RatingModel\HttpRating.cs" />
-    <Compile Include="RatingModel\ParseRating.cs" />
-    <Compile Include="RatingModel\RatingData.cs" />
-    <Compile Include="RatingModel\StorageRating.cs" />
+    <Compile Include="Model\StartService.cs" />
     <Compile Include="СommonCode\CommonInterfaces.cs" />
     <Compile Include="СommonCode\SQLiteProvider.cs" />
     <Compile Include="СommonCode\MessageEvent.cs" />

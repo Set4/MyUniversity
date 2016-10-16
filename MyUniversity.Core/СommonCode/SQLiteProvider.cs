@@ -19,7 +19,7 @@ namespace MyUniversity.Core
   
     public class SQLiteService
     {
-        private SQLiteAsyncConnection _dbConnection;
+        public SQLiteAsyncConnection _dbConnection;
 
   
 
@@ -34,6 +34,7 @@ namespace MyUniversity.Core
            _dbConnection = new SQLiteAsyncConnection(connectionFactory);
         }
 
+       
 
       private async Task<int> Table<T>() where T: class
         {

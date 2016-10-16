@@ -110,7 +110,7 @@
                         VerticalAlignment="Center"/>
 
 
-                    <!--<TextBlock 
+                    <TextBlock 
                         Margin="0,5,0,0"
                         x:Name="txblock_Name"
                        FontSize="18"
@@ -119,9 +119,9 @@
                         TextWrapping="Wrap"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Tapped="txblock_Name_Tapped"/>-->
+                        Tapped="txblock_Name_Tapped"/>
 
-                  
+
 
 
                     <StackPanel Orientation="Vertical" Margin="0,5,0,0">
@@ -149,12 +149,15 @@
                     Source="http://www.micronichefellas.com/wp-content/uploads/2012/05/google-penguin-update-292x300.jpg" 
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"/>
-
-                <StackPanel 
-                   
+ 
+                <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto"
                     Grid.Row="1" 
                     Grid.Column="0" 
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2">
+                        
+                <StackPanel 
+                   
+                  
                     Margin="10,5,10,5">
                   
                     <TextBlock 
@@ -164,7 +167,7 @@
                         HorizontalAlignment="Center"
                          Margin="0,0,0,5"/>
 
-
+                  
                     <StackPanel Orientation="Vertical">
                         <TextBlock  
                          Style="{StaticResource StyleHeaderProfile}"
@@ -243,9 +246,9 @@
                         Text="  Очная"
                        />
                     </StackPanel>
-
+                   
                 </StackPanel>
-
+ </ScrollViewer>
                 <Button 
                     Style="{StaticResource SecondaryButtonStyle}"
                     FontSize="18"

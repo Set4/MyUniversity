@@ -26,7 +26,6 @@
                TextAlignment="Center"
                 TextWrapping="Wrap"
                   Text="Вход для зарегистрированных пользователей"
-               
                   Style="{StaticResource PrimaryTextBlockStyle}"/>
                         
             <TextBox 

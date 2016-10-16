@@ -14,7 +14,7 @@
     <Grid Style="{StaticResource SecondaryGridStyle}">
 
         <Pivot x:Name="pivotLessons" 
-               Margin="10" 
+              
                HorizontalAlignment="Stretch" 
                VerticalAlignment="Stretch">
 
@@ -32,8 +32,8 @@
                 <DataTemplate>
                     <Grid x:Name="maingrid" Style="{StaticResource SecondaryGridStyle}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="130"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="140"/>
                             <RowDefinition Height="80"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
@@ -42,16 +42,25 @@
                             <ColumnDefinition Width="130"/>
                         </Grid.ColumnDefinitions>
 
+                        <StackPanel 
+                             Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            Background="#1972D2" 
+                            HorizontalAlignment="Stretch" 
+                            Padding="10">
                         <TextBlock 
                             HorizontalAlignment="Center"
+                           VerticalAlignment="Stretch"
                             TextAlignment="Center"
                             TextWrapping="Wrap"
-                            Grid.Row="0"
-                            Grid.ColumnSpan="2"
+                           
+                           Foreground="White"
+                          
                             Text="{Binding NameLesson}" 
                             Style="{StaticResource PrimaryTextBlockStyle}"
                             FontSize="18"/>
-                      
+                      </StackPanel>
+                        
                         <StackPanel 
                             Grid.Row="1"
                             Grid.Column="0"
@@ -98,7 +107,7 @@
                               Grid.Row="1"
                                 Grid.Column="1"    
                                 StartAngle="0" 
-                                EndAngle="{Binding TotalPointsPercentage}" 
+                                EndAngle="{Binding Percentage}" 
                                 Fill="#1976D2" 
                             
                                 Radius="60" 

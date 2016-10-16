@@ -67,6 +67,18 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
+            var userXamlType = xamlType as global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
+            }
             if (xamlType != null)
             {
                 _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -90,6 +102,18 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
             if(typeIndex != -1)
             {
                 xamlType = CreateXamlType(typeIndex);
+            }
+            var userXamlType = xamlType as global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
             }
             if (xamlType != null)
             {
@@ -132,29 +156,49 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[10];
-            _typeNameTable[0] = "MyUniversity.WindowsPhone10.InfoPage";
+            _typeNameTable = new string[20];
+            _typeNameTable[0] = "MyUniversity.WindowsPhone10.AuthentificationPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "MyUniversity.WindowsPhone10.LoginPage";
-            _typeNameTable[4] = "MyUniversity.WindowsPhone10.MainPage";
-            _typeNameTable[5] = "MyUniversity.WindowsPhone10.PageCollection";
-            _typeNameTable[6] = "MyUniversity.WindowsPhone10.ProfilPage";
-            _typeNameTable[7] = "MyUniversity.WindowsPhone10.RigistrationPage";
-            _typeNameTable[8] = "MyUniversity.WindowsPhone10.ViewMessage";
-            _typeNameTable[9] = "MyUniversity.WindowsPhone10.ViewProfil";
+            _typeNameTable[3] = "MyUniversity.WindowsPhone10.InfoPage";
+            _typeNameTable[4] = "WinRTXamlToolkit.Controls.RingSlice";
+            _typeNameTable[5] = "Windows.UI.Xaml.Shapes.Path";
+            _typeNameTable[6] = "Double";
+            _typeNameTable[7] = "System.Nullable`1<Windows.Foundation.Point>";
+            _typeNameTable[8] = "System.ValueType";
+            _typeNameTable[9] = "Object";
+            _typeNameTable[10] = "MyUniversity.WindowsPhone10.LessonsPage";
+            _typeNameTable[11] = "MyUniversity.WindowsPhone10.MainPage";
+            _typeNameTable[12] = "MyUniversity.WindowsPhone10.MessageSelector";
+            _typeNameTable[13] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[14] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[15] = "MyUniversity.WindowsPhone10.MessagesCollectionPage";
+            _typeNameTable[16] = "MyUniversity.WindowsPhone10.ItemsSelector";
+            _typeNameTable[17] = "MyUniversity.WindowsPhone10.ShedulePage";
+            _typeNameTable[18] = "MyUniversity.WindowsPhone10.ViewMessage";
+            _typeNameTable[19] = "MyUniversity.WindowsPhone10.ViewProfil";
 
-            _typeTable = new global::System.Type[10];
-            _typeTable[0] = typeof(global::MyUniversity.WindowsPhone10.InfoPage);
+            _typeTable = new global::System.Type[20];
+            _typeTable[0] = typeof(global::MyUniversity.WindowsPhone10.AuthentificationPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::MyUniversity.WindowsPhone10.LoginPage);
-            _typeTable[4] = typeof(global::MyUniversity.WindowsPhone10.MainPage);
-            _typeTable[5] = typeof(global::MyUniversity.WindowsPhone10.PageCollection);
-            _typeTable[6] = typeof(global::MyUniversity.WindowsPhone10.ProfilPage);
-            _typeTable[7] = typeof(global::MyUniversity.WindowsPhone10.RigistrationPage);
-            _typeTable[8] = typeof(global::MyUniversity.WindowsPhone10.ViewMessage);
-            _typeTable[9] = typeof(global::MyUniversity.WindowsPhone10.ViewProfil);
+            _typeTable[3] = typeof(global::MyUniversity.WindowsPhone10.InfoPage);
+            _typeTable[4] = typeof(global::WinRTXamlToolkit.Controls.RingSlice);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Shapes.Path);
+            _typeTable[6] = typeof(global::System.Double);
+            _typeTable[7] = typeof(global::System.Nullable<global::Windows.Foundation.Point>);
+            _typeTable[8] = typeof(global::System.ValueType);
+            _typeTable[9] = typeof(global::System.Object);
+            _typeTable[10] = typeof(global::MyUniversity.WindowsPhone10.LessonsPage);
+            _typeTable[11] = typeof(global::MyUniversity.WindowsPhone10.MainPage);
+            _typeTable[12] = typeof(global::MyUniversity.WindowsPhone10.MessageSelector);
+            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[15] = typeof(global::MyUniversity.WindowsPhone10.MessagesCollectionPage);
+            _typeTable[16] = typeof(global::MyUniversity.WindowsPhone10.ItemsSelector);
+            _typeTable[17] = typeof(global::MyUniversity.WindowsPhone10.ShedulePage);
+            _typeTable[18] = typeof(global::MyUniversity.WindowsPhone10.ViewMessage);
+            _typeTable[19] = typeof(global::MyUniversity.WindowsPhone10.ViewProfil);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -189,14 +233,17 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_InfoPage() { return new global::MyUniversity.WindowsPhone10.InfoPage(); }
-        private object Activate_3_LoginPage() { return new global::MyUniversity.WindowsPhone10.LoginPage(); }
-        private object Activate_4_MainPage() { return new global::MyUniversity.WindowsPhone10.MainPage(); }
-        private object Activate_5_PageCollection() { return new global::MyUniversity.WindowsPhone10.PageCollection(); }
-        private object Activate_6_ProfilPage() { return new global::MyUniversity.WindowsPhone10.ProfilPage(); }
-        private object Activate_7_RigistrationPage() { return new global::MyUniversity.WindowsPhone10.RigistrationPage(); }
-        private object Activate_8_ViewMessage() { return new global::MyUniversity.WindowsPhone10.ViewMessage(); }
-        private object Activate_9_ViewProfil() { return new global::MyUniversity.WindowsPhone10.ViewProfil(); }
+        private object Activate_0_AuthentificationPage() { return new global::MyUniversity.WindowsPhone10.AuthentificationPage(); }
+        private object Activate_3_InfoPage() { return new global::MyUniversity.WindowsPhone10.InfoPage(); }
+        private object Activate_4_RingSlice() { return new global::WinRTXamlToolkit.Controls.RingSlice(); }
+        private object Activate_10_LessonsPage() { return new global::MyUniversity.WindowsPhone10.LessonsPage(); }
+        private object Activate_11_MainPage() { return new global::MyUniversity.WindowsPhone10.MainPage(); }
+        private object Activate_12_MessageSelector() { return new global::MyUniversity.WindowsPhone10.MessageSelector(); }
+        private object Activate_15_MessagesCollectionPage() { return new global::MyUniversity.WindowsPhone10.MessagesCollectionPage(); }
+        private object Activate_16_ItemsSelector() { return new global::MyUniversity.WindowsPhone10.ItemsSelector(); }
+        private object Activate_17_ShedulePage() { return new global::MyUniversity.WindowsPhone10.ShedulePage(); }
+        private object Activate_18_ViewMessage() { return new global::MyUniversity.WindowsPhone10.ViewMessage(); }
+        private object Activate_19_ViewProfil() { return new global::MyUniversity.WindowsPhone10.ViewProfil(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -208,9 +255,9 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  MyUniversity.WindowsPhone10.InfoPage
+            case 0:   //  MyUniversity.WindowsPhone10.AuthentificationPage
                 userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_InfoPage;
+                userType.Activator = Activate_0_AuthentificationPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -223,51 +270,112 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
                 xamlType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  MyUniversity.WindowsPhone10.LoginPage
+            case 3:   //  MyUniversity.WindowsPhone10.InfoPage
                 userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_LoginPage;
+                userType.Activator = Activate_3_InfoPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  MyUniversity.WindowsPhone10.MainPage
+            case 4:   //  WinRTXamlToolkit.Controls.RingSlice
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Shapes.Path"));
+                userType.Activator = Activate_4_RingSlice;
+                userType.AddMemberName("StartAngle");
+                userType.AddMemberName("EndAngle");
+                userType.AddMemberName("Radius");
+                userType.AddMemberName("InnerRadius");
+                userType.AddMemberName("Center");
+                xamlType = userType;
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Shapes.Path
+                xamlType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  Double
+                xamlType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  System.Nullable`1<Windows.Foundation.Point>
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 8:   //  System.ValueType
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 9:   //  Object
+                xamlType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  MyUniversity.WindowsPhone10.LessonsPage
                 userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainPage;
+                userType.Activator = Activate_10_LessonsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  MyUniversity.WindowsPhone10.PageCollection
+            case 11:   //  MyUniversity.WindowsPhone10.MainPage
                 userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_PageCollection;
+                userType.Activator = Activate_11_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  MyUniversity.WindowsPhone10.ProfilPage
-                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_ProfilPage;
+            case 12:   //  MyUniversity.WindowsPhone10.MessageSelector
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_12_MessageSelector;
+                userType.AddMemberName("UnMessageTemplate");
+                userType.AddMemberName("MessageTemplate");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  MyUniversity.WindowsPhone10.RigistrationPage
+            case 13:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+                xamlType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  MyUniversity.WindowsPhone10.MessagesCollectionPage
                 userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_RigistrationPage;
+                userType.Activator = Activate_15_MessagesCollectionPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  MyUniversity.WindowsPhone10.ViewMessage
-                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_ViewMessage;
+            case 16:   //  MyUniversity.WindowsPhone10.ItemsSelector
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_16_ItemsSelector;
+                userType.AddMemberName("DayDataItemsTemplate");
+                userType.AddMemberName("SheduleItemsTenplate");
+                userType.AddMemberName("SheduleEmptyItemsTenplate");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  MyUniversity.WindowsPhone10.ViewProfil
+            case 17:   //  MyUniversity.WindowsPhone10.ShedulePage
                 userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_ViewProfil;
+                userType.Activator = Activate_17_ShedulePage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  MyUniversity.WindowsPhone10.ViewMessage
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_18_ViewMessage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 19:   //  MyUniversity.WindowsPhone10.ViewProfil
+                userType = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_19_ViewProfil;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -275,12 +383,237 @@ namespace MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::WinRTXamlToolkit.Controls.DataVisualization.WinRTXamlToolkit_Controls_DataVisualization_UWP_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::WinRTXamlToolkit.WinRTXamlToolkit_UWP_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    _otherProviders = otherProviders;
+                }
+                return _otherProviders;
+            }
+        }
 
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_RingSlice_StartAngle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            return that.StartAngle;
+        }
+        private void set_0_RingSlice_StartAngle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            that.StartAngle = (global::System.Double)Value;
+        }
+        private object get_1_RingSlice_EndAngle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            return that.EndAngle;
+        }
+        private void set_1_RingSlice_EndAngle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            that.EndAngle = (global::System.Double)Value;
+        }
+        private object get_2_RingSlice_Radius(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            return that.Radius;
+        }
+        private void set_2_RingSlice_Radius(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            that.Radius = (global::System.Double)Value;
+        }
+        private object get_3_RingSlice_InnerRadius(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            return that.InnerRadius;
+        }
+        private void set_3_RingSlice_InnerRadius(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            that.InnerRadius = (global::System.Double)Value;
+        }
+        private object get_4_RingSlice_Center(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            return that.Center;
+        }
+        private void set_4_RingSlice_Center(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.RingSlice)instance;
+            that.Center = (global::System.Nullable<global::Windows.Foundation.Point>)Value;
+        }
+        private object get_5_MessageSelector_UnMessageTemplate(object instance)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.MessageSelector)instance;
+            return that.UnMessageTemplate;
+        }
+        private void set_5_MessageSelector_UnMessageTemplate(object instance, object Value)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.MessageSelector)instance;
+            that.UnMessageTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_6_MessageSelector_MessageTemplate(object instance)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.MessageSelector)instance;
+            return that.MessageTemplate;
+        }
+        private void set_6_MessageSelector_MessageTemplate(object instance, object Value)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.MessageSelector)instance;
+            that.MessageTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_7_ItemsSelector_DayDataItemsTemplate(object instance)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.ItemsSelector)instance;
+            return that.DayDataItemsTemplate;
+        }
+        private void set_7_ItemsSelector_DayDataItemsTemplate(object instance, object Value)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.ItemsSelector)instance;
+            that.DayDataItemsTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_8_ItemsSelector_SheduleItemsTenplate(object instance)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.ItemsSelector)instance;
+            return that.SheduleItemsTenplate;
+        }
+        private void set_8_ItemsSelector_SheduleItemsTenplate(object instance, object Value)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.ItemsSelector)instance;
+            that.SheduleItemsTenplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_9_ItemsSelector_SheduleEmptyItemsTenplate(object instance)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.ItemsSelector)instance;
+            return that.SheduleEmptyItemsTenplate;
+        }
+        private void set_9_ItemsSelector_SheduleEmptyItemsTenplate(object instance, object Value)
+        {
+            var that = (global::MyUniversity.WindowsPhone10.ItemsSelector)instance;
+            that.SheduleEmptyItemsTenplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "WinRTXamlToolkit.Controls.RingSlice.StartAngle":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.RingSlice");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "StartAngle", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_RingSlice_StartAngle;
+                xamlMember.Setter = set_0_RingSlice_StartAngle;
+                break;
+            case "WinRTXamlToolkit.Controls.RingSlice.EndAngle":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.RingSlice");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "EndAngle", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_RingSlice_EndAngle;
+                xamlMember.Setter = set_1_RingSlice_EndAngle;
+                break;
+            case "WinRTXamlToolkit.Controls.RingSlice.Radius":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.RingSlice");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "Radius", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_2_RingSlice_Radius;
+                xamlMember.Setter = set_2_RingSlice_Radius;
+                break;
+            case "WinRTXamlToolkit.Controls.RingSlice.InnerRadius":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.RingSlice");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "InnerRadius", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_RingSlice_InnerRadius;
+                xamlMember.Setter = set_3_RingSlice_InnerRadius;
+                break;
+            case "WinRTXamlToolkit.Controls.RingSlice.Center":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.RingSlice");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "Center", "System.Nullable`1<Windows.Foundation.Point>");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_RingSlice_Center;
+                xamlMember.Setter = set_4_RingSlice_Center;
+                break;
+            case "MyUniversity.WindowsPhone10.MessageSelector.UnMessageTemplate":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyUniversity.WindowsPhone10.MessageSelector");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "UnMessageTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_5_MessageSelector_UnMessageTemplate;
+                xamlMember.Setter = set_5_MessageSelector_UnMessageTemplate;
+                break;
+            case "MyUniversity.WindowsPhone10.MessageSelector.MessageTemplate":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyUniversity.WindowsPhone10.MessageSelector");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "MessageTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_6_MessageSelector_MessageTemplate;
+                xamlMember.Setter = set_6_MessageSelector_MessageTemplate;
+                break;
+            case "MyUniversity.WindowsPhone10.ItemsSelector.DayDataItemsTemplate":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyUniversity.WindowsPhone10.ItemsSelector");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "DayDataItemsTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_7_ItemsSelector_DayDataItemsTemplate;
+                xamlMember.Setter = set_7_ItemsSelector_DayDataItemsTemplate;
+                break;
+            case "MyUniversity.WindowsPhone10.ItemsSelector.SheduleItemsTenplate":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyUniversity.WindowsPhone10.ItemsSelector");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "SheduleItemsTenplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_8_ItemsSelector_SheduleItemsTenplate;
+                xamlMember.Setter = set_8_ItemsSelector_SheduleItemsTenplate;
+                break;
+            case "MyUniversity.WindowsPhone10.ItemsSelector.SheduleEmptyItemsTenplate":
+                userType = (global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyUniversity.WindowsPhone10.ItemsSelector");
+                xamlMember = new global::MyUniversity.WindowsPhone10.MyUniversity_WindowsPhone10_XamlTypeInfo.XamlMember(this, "SheduleEmptyItemsTenplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_9_ItemsSelector_SheduleEmptyItemsTenplate;
+                xamlMember.Setter = set_9_ItemsSelector_SheduleEmptyItemsTenplate;
+                break;
+            }
             return xamlMember;
         }
     }

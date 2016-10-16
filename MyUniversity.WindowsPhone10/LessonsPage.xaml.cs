@@ -22,12 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MyUniversity.WindowsPhone10
 {
-    public interface ILessonsPage
-    {
-        void ViewProfile(List<Lesson> items);
-      void  ViewErrorNoNetwork();
-      void  ViewErrorAccountIncorrect();
-    }
+  
      class LessonView
     {
 
@@ -51,6 +46,8 @@ namespace MyUniversity.WindowsPhone10
        
         public int TotalPointsPercentage { get; set; }
 
+        public int Percentage { get; set; }
+
         public List<string> PointsInWeek { get; set; }
 
 
@@ -64,6 +61,7 @@ namespace MyUniversity.WindowsPhone10
             ExtraPoints = item.ExtraPoints;
             TotalPoints = item.TotalPoints;
             TotalPointsPercentage = item.TotalPointsPercentage;
+            Percentage = item.Percentage;
 
             PointsInWeek = new List<string>();
             foreach (string i in item.PointsInWeek.Split(';'))
@@ -72,10 +70,9 @@ namespace MyUniversity.WindowsPhone10
         }
     }
 
-    public sealed partial class LessonsPage : Page, ILessonsPage
+    public sealed partial class LessonsPage : Page
     {
-        private LessonsModelPresenter presenter;
-
+      
        
         Account acc;
 
@@ -87,14 +84,14 @@ namespace MyUniversity.WindowsPhone10
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-             acc = e.Parameter as Account;
-            presenter = new LessonsModelPresenter(this, new RatingModel(e.Parameter as AuthentificationModel, new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), ApplicationData.Current.LocalFolder.Path));
+            // acc = e.Parameter as Account;
+            // presenter = new LessonsModelPresenter(this, new RatingModel(e.Parameter as AuthentificationModel, new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), ApplicationData.Current.LocalFolder.Path));
 
-            presenter.GetNotifications();
+            ViewLessons(e.Parameter as List<Lesson>);
         }
 
 
-        public void ViewProfile(List<Lesson> items)
+        public void ViewLessons(List<Lesson> items)
         {
             LessonView less;
             pivotLessons.Items.Clear();
@@ -104,27 +101,7 @@ namespace MyUniversity.WindowsPhone10
                 pivotLessons.Items.Add(less);
             }
         }
-        public async void ViewErrorNoNetwork()
-        {
-            await Task.Factory.StartNew(async () =>
-            {
-                var dialog = new Windows.UI.Popups.MessageDialog(" Повторите попытку позже.", "Ошибка NEySEti");
-
-                await dialog.ShowAsync();
-            });
-        }
-
-        public async void ViewErrorAccountIncorrect()
-        {
-            await Task.Factory.StartNew(async () =>
-            {
-                var dialog = new Windows.UI.Popups.MessageDialog(
-              "acc incorr");
-
-                await dialog.ShowAsync();
-                Frame.Navigate(typeof(AuthentificationPage), acc);
-            });
-        }
+      
 
     }
 

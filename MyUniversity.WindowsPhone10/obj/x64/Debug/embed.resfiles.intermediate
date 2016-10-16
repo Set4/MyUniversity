@@ -1,9 +1,9 @@
 App.xbf
+AuthentificationPage.xbf
 InfoPage.xbf
-LoginPage.xbf
+LessonsPage.xbf
 MainPage.xbf
-PageCollection.xbf
-ProfilPage.xbf
-RigistrationPage.xbf
-ViewMessage.xbf
-ViewProfil.xbf
+MessagesCollectionPage.xbf
+MessageView.xbf
+ProfilePage.xbf
+ShedulePage.xbf

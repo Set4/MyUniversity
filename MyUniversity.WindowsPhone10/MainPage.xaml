@@ -270,7 +270,10 @@
                               StrokeThickness="2"/>
 
 
-                        <Button Background="Transparent" HorizontalAlignment="Stretch" Height="40" HorizontalContentAlignment="Left" >
+                        <Button Background="Transparent" 
+                                HorizontalAlignment="Stretch" 
+                                Height="40" HorizontalContentAlignment="Left" 
+                                Tapped="Button_Tapped_2">
                             <Button.Content>
                                 <StackPanel  Orientation="Horizontal">
                                     <SymbolIcon  
